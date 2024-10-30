@@ -1,0 +1,133 @@
+body {
+  --autocomplete-input-background-color: #ffffff;
+  --autocomplete-input-text-color: #222;
+  --autocomplete-input-placeholder-color: #222;
+  --autocomplete-input-focus-background-color: #ffffff;
+  --autocomplete-input-hover-color: #222;
+  --autocomplete-input-focus-color: #222;
+  --autocomplete-item-max-height: 226px;
+  --autocomplete-item-background-color: #fff;
+  --autocomplete-item-color: #222;
+  --autocomplete-item-highlight-color: #082f50;
+  --autocomplete-item-hover-background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.mq_autocomplete_wrapper {
+  display: inline-block;
+  position: relative;
+
+}
+
+.mq_autocomplete_wrapper > input {
+
+  width: auto;
+  margin: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  color: var(--autocomplete-input-text-color);
+  outline: none;
+  border-radius: 10rem;
+  border: 0;
+  background-size: 1.4rem;
+  background-position: left 1.05rem top 0.8rem;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-color: var(--autocomplete-input-background-color);
+  transition: all 0.4s ease;
+  -webkit-transition: all -webkit-transform 0.4s ease;
+}
+
+.mq_autocomplete_wrapper > input::placeholder {
+  color:var(--autocomplete-input-placeholder-color);
+  transition: all 0.3s ease;
+  -webkit-transition: all -webkit-transform 0.3s ease;
+}
+
+.mq_autocomplete_wrapper > input:hover::placeholder {
+  color: var(--autocomplete-input-placeholder-color);
+  transition: all 0.3s ease;
+  -webkit-transition: all -webkit-transform 0.3s ease;
+}
+
+.mq_autocomplete_wrapper > input:focus::placeholder {
+  padding: 0.1rem 0.6rem;
+  font-size: 0.95rem;
+  color: var(--autocomplete-input-placeholder-color);
+}
+
+.mq_autocomplete_wrapper > input:hover {
+  color:  var(--autocomplete-input-hover-color);
+  transition: all 0.3s ease;
+  -webkit-transition: all -webkit-transform 0.3s ease;
+}
+
+.mq_autocomplete_wrapper > input:focus {
+  color:  var(--autocomplete-input-focus-color);
+}
+
+.mq_autocomplete_wrapper > ul {
+  position: absolute;
+  max-height: var(--autocomplete-item-max-height);
+  overflow-y: scroll;
+  box-sizing: border-box;
+  left: 0;
+  right: 0;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+  z-index: 1;
+  list-style: none;
+  border-radius: 0.6rem;
+  background-color: #fff;
+  border: 1px solid rgba(33, 33, 33, 0.07);
+  box-shadow: 0 3px 6px rgba(149, 157, 165, 0.15);
+  outline: none;
+  transition: opacity 0.15s ease-in-out;
+  -moz-transition: opacity 0.15s ease-in-out;
+  -webkit-transition: opacity 0.15s ease-in-out;
+}
+
+.mq_autocomplete_wrapper > ul[hidden],
+.mq_autocomplete_wrapper > ul:empty {
+  display: block;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.mq_autocomplete_wrapper > ul > li {
+  margin: 0.3rem;
+  padding: 0.3rem 0.5rem;
+  text-align: left;
+  font-size: 1rem;
+  color: var(--autocomplete-item-color);
+  border-radius: 0.35rem;
+  background-color: var(--autocomplete-item-background-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.2s ease;
+}
+
+.mq_autocomplete_wrapper > ul > li mark {
+  background-color: transparent;
+  color: var(--autocomplete-item-highlight-color);
+  font-weight: bold;
+}
+
+.mq_autocomplete_wrapper > ul > li:hover {
+  cursor: pointer;
+  background-color: var(--autocomplete-item-hover-background-color);
+}
+
+.mq_autocomplete_wrapper > ul > li[aria-selected="true"] {
+  background-color: var(--autocomplete-item-hover-background-color);
+}
+
+@media only screen and (max-width: 600px) {
+  .mq_autocomplete_wrapper > input {
+    width: 18rem;
+  }
+}
